@@ -1,13 +1,12 @@
 public class Person {
     private String name;
     private int age;
-    private double salary;
 
 
-    public Person(String name, int age, double salary) {
+    public Person(String name, int age) {
         this.name = name;
         this.age = age;
-        this.salary = salary;
+        
     }
 
     public void setName (String name){
@@ -18,9 +17,6 @@ public class Person {
         this.age = age;
     }
 
-    public void setSalary(double salary){
-        this.salary = salary;
-    }
 
     public String getName(){
         return this.name;
@@ -30,8 +26,5 @@ public class Person {
         return this.age;
     }
 
-    public double getSalary(){
-        return this.salary;
-    }
 
 }

@@ -1,26 +1,24 @@
-public class Account extends Person {
+public class Account {
     private double balance;
     private double fixedExpenses;
     private double monthlyExpenses;
     private double monthlyIncome;
+    private double salary;
 
-
-    public Account(String name, int age, double salary, double balance, double fixedExpenses) {
-        super(name, age, salary);
+    public Account(double fixedExpenses, double salary) {
         this.fixedExpenses = fixedExpenses;
+        this.salary = salary;
         this.balance = salary - fixedExpenses;
     }
 
     public void deposity(double amount, String commentary){
         this.balance += amount;
-        System.out.println("Deposited " + amount + " to " + this.getName() + "'s account. " + "description: " + commentary);
         this.monthlyIncome += amount;
         
     }
 
     public void withdraw(double amount, String commentary){
         this.balance -= amount;
-        System.out.println("Withdrew " + amount + " from " + this.getName() + "'s account. " + "description: " + commentary);
         this.monthlyExpenses += amount;
     }
 
@@ -41,6 +39,9 @@ public class Account extends Person {
         return this.monthlyIncome;
     }   
 
+    public double getSalary(){
+        return this.salary;
+    }
 
 
 
