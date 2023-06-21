@@ -11,15 +11,16 @@ public class Account {
         this.balance = salary - fixedExpenses;
     }
 
-    public void deposity(double amount, String commentary){
+    public void valueIn(double amount, String commentary){
         this.balance += amount;
         this.monthlyIncome += amount;
-        
+        System.out.println("Deposit of " + amount + ", type: " + commentary);
     }
 
-    public void withdraw(double amount, String commentary){
+    public void valueOut(double amount, String commentary){
         this.balance -= amount;
         this.monthlyExpenses += amount;
+        System.out.println("Withdrawal of " + amount + ", type: " + commentary);
     }
 
 
