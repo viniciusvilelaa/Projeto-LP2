@@ -1,4 +1,4 @@
-public class Account {
+public class Account implements Movement{
     private double balance;
     private double fixedExpenses;
     private double monthlyExpenses;
@@ -11,18 +11,6 @@ public class Account {
         this.balance = salary - fixedExpenses;
     }
 
-    public void valueIn(double amount, String commentary){
-        this.balance += amount;
-        this.monthlyIncome += amount;
-        System.out.println("Deposit of " + amount + ", type: " + commentary);
-    }
-
-    public void valueOut(double amount, String commentary){
-        this.balance -= amount;
-        this.monthlyExpenses += amount;
-        System.out.println("Withdrawal of " + amount + ", type: " + commentary);
-    }
-
 
     public double getBalance(){
         return this.balance;
@@ -30,20 +18,34 @@ public class Account {
 
     public double getFixedExpenses(){
         return this.fixedExpenses;
-    }
-
-    public double getMonthlyExpenses(){
-        return this.monthlyExpenses - this.fixedExpenses;
-    }
-
-    public double getMonthlyIncome(){
-        return this.monthlyIncome;
     }   
 
     public double getSalary(){
         return this.salary;
     }
 
+    @Override
+    public void valueIn(double amount, String commentary){
+        this.balance += amount;
+        this.monthlyIncome += amount;
+        System.out.println("Deposit of " + amount + ", type: " + commentary);
+    }
+    @Override
+    public void valueOut(double amount, String commentary){
+        this.balance -= amount;
+        this.monthlyExpenses += amount;
+        System.out.println("Withdrawal of " + amount + ", type: " + commentary);
+    }
 
+    @Override
+    public double getMonthlyExpenses(){
+        return this.monthlyExpenses - this.fixedExpenses;
+    }
+    @Override
+    public double getMonthlyIncome(){
+        return this.monthlyIncome;
+    }
+
+    
 
 }
