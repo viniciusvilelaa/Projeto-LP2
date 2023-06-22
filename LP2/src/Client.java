@@ -1,3 +1,6 @@
+
+
+
 public class Client extends Person implements Movement{
     private Account account;
 
@@ -5,7 +8,7 @@ public class Client extends Person implements Movement{
     public Client (String name, int age, double salary, double fixedExpenses){
         super(name, age);
         this.account = new Account(fixedExpenses, salary);
-        System.out.println("Cliente cadastrado corretamente, obrigado por utlizar LP2 Finance. Você tem um salario de: " + salary + "e tem um gasto fisico de: " + fixedExpenses);
+        System.out.println("Successfully registered client. Salary: $" + salary + " Fixed Expense: $" + fixedExpenses);
         //Lugar onde pode ser utilizado as exeções
     }
     
@@ -21,14 +24,14 @@ public class Client extends Person implements Movement{
         account.valueOut(amount, commentary);
     }
 
-    @Override
-    public double getMonthlyExpenses(){
-        return account.getMonthlyExpenses();
+    
+    public void getMonthlyExpenses(){
+        System.out.println(account.getMonthlyExpenses());
     }
     
-    @Override
-    public double getMonthlyIncome(){
-        return account.getMonthlyIncome();
+    
+    public void getMonthlyIncome(){
+        account.getMonthlyIncome();
     }
 
 
