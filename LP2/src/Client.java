@@ -1,17 +1,39 @@
 
 
 
-public class Client extends Person implements Movement{
+public class Client extends Person implements Actions{
     private Account account;
 
     //Cria a conta com os dados
     public Client (String name, int age, double salary, double fixedExpenses){
         super(name, age);
+        if(salary < fixedExpenses){
+            throw new IllegalArgumentException("Salário menor que despesas fixas");
+        }
         this.account = new Account(fixedExpenses, salary);
         System.out.println("Successfully registered client. Salary: $" + salary + " Fixed Expense: $" + fixedExpenses);
         //Lugar onde pode ser utilizado as exeções
     }
     
+
+
+    
+    public void getBalance(){
+        System.out.println(account.getBalance());
+    }
+    
+    public void getMonthlyExpenses(){
+        System.out.println(account.getMonthlyExpenses());
+    }
+    
+    
+    public void getMonthlyIncome(){
+        System.out.print(account.getMonthlyIncome());
+    }
+
+    public void getMovimentacoes(int x){
+        account.getMovimentacoes(x);
+    }
 
 
     @Override
@@ -23,18 +45,6 @@ public class Client extends Person implements Movement{
     public void valueOut(double amount, String commentary){
         account.valueOut(amount, commentary);
     }
-
-    
-    public void getMonthlyExpenses(){
-        System.out.println(account.getMonthlyExpenses());
-    }
-    
-    
-    public void getMonthlyIncome(){
-        account.getMonthlyIncome();
-    }
-
-
 
 
 }

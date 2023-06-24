@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 
-public class Account implements Movement{
+public class Account implements Actions{
     private double balance;
     private double fixedExpenses;
     private double monthlyExpenses;
     private double monthlyIncome;
     private double salary;
 
-    private ArrayList<String> movimentacoes = new ArrayList<String>();
+    private ArrayList<String> historicMoviments = new ArrayList<String>();
     //perguntar como eu faco para salvar o valor e o comentario em um array 
 
     public Account(double fixedExpenses, double salary) {
@@ -29,19 +29,6 @@ public class Account implements Movement{
         return this.salary;
     }
 
-    @Override
-    public void valueIn(double amount, String commentary){
-        this.balance += amount;
-        this.monthlyIncome += amount;
-        movimentacoes.add("Deposit of " + amount + ", type: " + commentary);
-        
-    }
-    @Override
-    public void valueOut(double amount, String commentary){
-        this.balance -= amount;
-        this.monthlyExpenses += amount;
-        System.out.println("Withdrawal of " + amount + ", type: " + commentary);
-    }
 
     
     public double getMonthlyExpenses(){
@@ -52,10 +39,22 @@ public class Account implements Movement{
         return this.monthlyIncome;
     }
 
-    public void getMovimentacoes(){
-        System.out.println(movimentacoes[0]);
+    public void getMovimentacoes(int x){
+        System.out.println(historicMoviments.get(x));
     }
 
-    
+    @Override
+    public void valueIn(double amount, String commentary){
+        this.balance += amount;
+        this.monthlyIncome += amount;
+        historicMoviments.add("Income of " + amount + ", Description: " + commentary);
+        
+    }
+    @Override
+    public void valueOut(double amount, String commentary){
+        this.balance -= amount;
+        this.monthlyExpenses += amount;
+        System.out.println("Expense of: " + amount + ", Description: " + commentary);
+    }
 
 }

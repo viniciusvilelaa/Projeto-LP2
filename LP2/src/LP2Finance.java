@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+/*import java.util.ArrayList;
 
 public class LP2Finance {
     public ArrayList<Client> clients;
@@ -19,4 +19,4 @@ public class LP2Finance {
             System.out.println("Client " + client.getName());            
         }
     }
-}
+}*/
