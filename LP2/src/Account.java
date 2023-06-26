@@ -39,8 +39,15 @@ public class Account implements Actions{
         return this.monthlyIncome;
     }
 
-    public void getMovimentacoes(int x){
+    public void getTransiction(int x){
         System.out.println(historicMoviments.get(x));
+    }
+    
+    public void getAllTransictions(){
+        for(int i = 0; i < historicMoviments.size(); i++){
+            System.out.println(historicMoviments.get(i));
+        }
+
     }
 
     @Override
@@ -55,6 +62,7 @@ public class Account implements Actions{
         this.balance -= amount;
         this.monthlyExpenses += amount;
         System.out.println("Expense of: " + amount + ", Description: " + commentary);
+        historicMoviments.add("Expense of " + amount + ", Description: " + commentary);
     }
 
 }
