@@ -5,53 +5,67 @@ public class App {
     public static void main(String[] args) throws Exception {
         
         Scanner sc = new Scanner(System.in);
-        int sair = 0;
-        int opcao = 0;
-        while(sair != 1){
-            System.out.print("Seja bem vindo ao LP2 Finance\n");
-            System.out.print("Digite seu Nome: ");
-            String nome = sc.nextLine();
-            System.out.print("Digite sua idade: ");
-            int idade = sc.nextInt();
-            System.out.print("Digite seu salário: ");
-            double salario = sc.nextDouble();
-            System.out.print("Digite suas despesas fixas: ");
-            double despesas = sc.nextDouble();
-            try{
-                Client cliente = new Client(nome, idade, salario, despesas);
-                System.out.println("Qual opcão deseja realizar?");
-                System.out.println("1 - Informar gasto");
-                System.out.println("2 - Informar ganho");
-                System.out.println("3 - Ver saldo");
-                System.out.println("4 - Ver despesas mensais");
-                System.out.println("5 - Ver ganhos mensais");
-                System.out.println("6 - Ver movimentações");
-                System.out.println("7 - Sair");
-                opcao = sc.nextInt();
-                if (opcao == 1){
-                    System.out.println("Digite o valor do gasto e informe tambem pequena descrição sobre o gasto:  ");
-                    double gasto = sc.nextDouble();
-                    String comentario = sc.nextLine();
-                    cliente.valueOut(gasto, comentario);
+        int exit = 0;
+        int option = 0;
+        
+        System.out.print("Welcome to LP2 Finance\n");
+        System.out.print("Type your name: ");
+        String name = sc.nextLine();
+        System.out.print("Type your age: ");
+        int age = sc.nextInt();
+        System.out.print("Type your Salary: ");
+        double salary = sc.nextDouble();
+        System.out.print("Type your fixed expenses: ");
+        double expenses = sc.nextDouble();
+        try{
+            Client cliente = new Client(name, age, salary, expenses);
+            while(exit != 1){
+                int id;
+                Menu.openMenu();
+                option = sc.nextInt();
+                if(option == 1){
+                    System.out.println("Enter the spend amount");
+                    double amount = sc.nextDouble();
+                    System.out.println("Type spend description");
+                    String description = sc.nextLine();
+                    description = sc.nextLine();
+                    cliente.valueOut(amount, description);
+                }else if(option == 2){
+                    System.out.println("Enter the income amount");
+                    double amount = sc.nextDouble();
+                    System.out.println("Type de income description");
+                    String description = sc.nextLine();
+                    description = sc.nextLine();
+                    cliente.valueIn(amount, description);
+                }else if(option == 3){
+                    cliente.getBalance();
+                }else if(option == 4){
+                    cliente.getMonthlyExpenses();
+                }else if(option == 5){
+                    cliente.getMonthlyIncome();
+                }else if(option == 6){
+                    System.out.println("Type the transaction number: ");
+                    int movi = sc.nextInt();
+                    cliente.getTransiction(movi);
+                }else if (option == 7){
+                    cliente.getAllTransictions();
+                }else if(option == 8){
+                    exit = 1;
                 }
-                
-            }catch(IllegalArgumentException e){
-                System.out.println("Salario nao pode ser menor que despesas fixas, o programa sera encerrado");
-                sair = 1;
             }
+
+                        
             
-            sair = 1;
-            
+                
+                
+        }catch(IllegalArgumentException e){
+            System.out.println("Salario nao pode ser menor que despesas fixas, o programa sera encerrado");
+            exit = 1;
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
+            
+        exit = 1;
+            
+             
         /*try{
             Client cliente = new Client("João", 20, 1200, 500);
         }catch(IllegalArgumentException e){
