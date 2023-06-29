@@ -20,6 +20,10 @@
 - Execções
 - Coleções
 
+  ## Diagrama de Classes
+<div align='center'>
+ <img src="/Diagrama.png" width='350' >
+</div>
 
 
 ## Autores
