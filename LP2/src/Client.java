@@ -6,7 +6,7 @@ public class Client extends Person implements Actions {
     public Client(String name, int age, double salary, double fixedExpenses) {
         super(name, age);
         if (salary < fixedExpenses) {
-            throw new IllegalArgumentException("Salário menor que despesas fixas");
+            throw new IllegalArgumentException("Your salary is less than your fixed expenses. The program will be closed.");
         }
         this.account = new Account(fixedExpenses, salary);
         System.out.println("Successfully registered client. Salary: $" + salary + " Fixed Expense: $" + fixedExpenses);
@@ -14,15 +14,15 @@ public class Client extends Person implements Actions {
     }
 
     public void getBalance() {
-        System.out.println("Seu saldo atual é de: R$" + account.getBalance());
+        System.out.println("Your balance is: $" + account.getBalance());
     }
 
     public void getMonthlyExpenses() {
-        System.out.println("Suas despesas até o momento foi de: R$" + account.getMonthlyExpenses());
+        System.out.println("Your expenses: $" + account.getMonthlyExpenses());
     }
 
     public void getMonthlyIncome() {
-        System.out.print("Seus ganhos até o momento foram de: " + account.getMonthlyIncome());
+        System.out.print("Your earnings: $" + account.getMonthlyIncome());
     }
 
     public void getTransiction(int x) {

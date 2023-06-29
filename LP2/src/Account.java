@@ -55,6 +55,7 @@ public class Account implements Actions{
         this.balance += amount;
         this.monthlyIncome += amount;
         historicMoviments.add("Income of " + amount + ", Description: " + commentary);
+        System.out.println("Your balance is: $" + this.balance);
         
     }
     @Override
@@ -63,6 +64,10 @@ public class Account implements Actions{
         this.monthlyExpenses += amount;
         System.out.println("Expense of: " + amount + ", Description: " + commentary);
         historicMoviments.add("Expense of " + amount + ", Description: " + commentary);
+        System.out.println("Your balance is: $" + this.balance);
+        if(this.balance == 0){
+            System.out.println("You have no money left");
+        }
     }
 
 }
