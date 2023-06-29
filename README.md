@@ -6,6 +6,7 @@
   O cliente informa seus dados como nome, idade, salario e despesas fixas.
 
   Com o cadastro efetuado o usuário pode pode informar gastos e ganhos,cada movimentação deve haver uma descrição do movimento.
+  
   O cliente tambem tem a opção de consultar seus gastos totais, seus ganhos totais , seu saldo e todas as movimentações realizadas em sua conta.
 
 
