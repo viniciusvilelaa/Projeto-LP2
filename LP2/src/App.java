@@ -45,8 +45,13 @@ public class App {
                     cliente.getMonthlyIncome();
                 }else if(option == 6){
                     System.out.println("Type the transaction number: ");
-                    int movi = sc.nextInt();
-                    cliente.getTransiction(movi);
+                    int movi = sc.nextInt() - 1;
+                    try{
+                        cliente.getTransiction(movi);
+                    }
+                    catch(IllegalArgumentException e){
+                        System.out.println("Invalid transaction number");
+                    }
                 }else if (option == 7){
                     cliente.getAllTransictions();
                 }else if(option == 8){

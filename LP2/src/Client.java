@@ -26,6 +26,7 @@ public class Client extends Person implements Actions {
     }
 
     public void getTransiction(int x) {
+        
         account.getTransiction(x);
     }
 

@@ -40,6 +40,9 @@ public class Account implements Actions{
     }
 
     public void getTransiction(int x){
+        /*if(x > historicMoviments.size()){
+            throw new IllegalArgumentException("This transiction does not exist");
+        }*/
         System.out.println(historicMoviments.get(x));
     }
     
