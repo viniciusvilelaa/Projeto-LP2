@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+
+import java.util.LinkedHashMap;
 
 public class Account implements Actions{
     private double balance;
@@ -6,8 +7,10 @@ public class Account implements Actions{
     private double monthlyExpenses;
     private double monthlyIncome;
     private double salary;
+    private Integer index = 1;
 
-    private ArrayList<String> historicMoviments = new ArrayList<String>();
+    private LinkedHashMap<Integer, String> historicMoviments = new LinkedHashMap<Integer, String>();
+    //private ArrayList<String> historicMoviments = new ArrayList<String>();
     //perguntar como eu faco para salvar o valor e o comentario em um array 
 
     public Account(double fixedExpenses, double salary) {
@@ -40,14 +43,13 @@ public class Account implements Actions{
     }
 
     public void getTransiction(int x){
-        /*if(x > historicMoviments.size()){
-            throw new IllegalArgumentException("This transiction does not exist");
-        }*/
         System.out.println(historicMoviments.get(x));
+        
     }
     
     public void getAllTransictions(){
-        for(int i = 0; i < historicMoviments.size(); i++){
+        //System.out.println(historicMoviments);
+        for (int i = 1; i <= historicMoviments.size(); i++) {
             System.out.println(historicMoviments.get(i));
         }
 
@@ -57,7 +59,10 @@ public class Account implements Actions{
     public void valueIn(double amount, String commentary){
         this.balance += amount;
         this.monthlyIncome += amount;
-        historicMoviments.add("Income of " + amount + ", Description: " + commentary);
+        //historicMoviments.add("Income of " + amount + ", Description: " + commentary);
+        historicMoviments.put(index, "Income of " + amount + ", Description: " + commentary);
+        index ++;
+        System.out.println("Income of: " + amount + ", Description: " + commentary);
         System.out.println("Your balance is: $" + this.balance);
         
     }
@@ -65,8 +70,10 @@ public class Account implements Actions{
     public void valueOut(double amount, String commentary){
         this.balance -= amount;
         this.monthlyExpenses += amount;
+        historicMoviments.put(index, "Expense of " + amount + ", Description: " + commentary);
+        index ++;
         System.out.println("Expense of: " + amount + ", Description: " + commentary);
-        historicMoviments.add("Expense of " + amount + ", Description: " + commentary);
+        //historicMoviments.add("Expense of " + amount + ", Description: " + commentary);
         System.out.println("Your balance is: $" + this.balance);
         if(this.balance == 0){
             System.out.println("You have no money left");

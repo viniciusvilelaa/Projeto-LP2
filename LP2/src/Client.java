@@ -22,7 +22,7 @@ public class Client extends Person implements Actions {
     }
 
     public void getMonthlyIncome() {
-        System.out.print("Your earnings: $" + account.getMonthlyIncome());
+        System.out.println("Your earnings: $" + account.getMonthlyIncome());
     }
 
     public void getTransiction(int x) {

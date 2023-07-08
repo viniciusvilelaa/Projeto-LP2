@@ -24,16 +24,16 @@ public class App {
                 Menu.openMenu();
                 option = sc.nextInt();
                 if(option == 1){
-                    System.out.println("Enter the spend amount");
+                    System.out.print("Enter the spend amount: ");
                     double amount = sc.nextDouble();
-                    System.out.println("Type spend description");
+                    System.out.print("Type spend description: ");
                     String description = sc.nextLine();
                     description = sc.nextLine();
                     cliente.valueOut(amount, description);
                 }else if(option == 2){
-                    System.out.println("Enter the income amount");
+                    System.out.print("Enter the income amount: ");
                     double amount = sc.nextDouble();
-                    System.out.println("Type de income description");
+                    System.out.print("Type de income description: ");
                     String description = sc.nextLine();
                     description = sc.nextLine();
                     cliente.valueIn(amount, description);
@@ -45,7 +45,7 @@ public class App {
                     cliente.getMonthlyIncome();
                 }else if(option == 6){
                     System.out.println("Type the transaction number: ");
-                    int movi = sc.nextInt() - 1;
+                    int movi = sc.nextInt();
                     try{
                         cliente.getTransiction(movi);
                     }
