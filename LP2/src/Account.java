@@ -56,21 +56,21 @@ public class Account implements Actions{
     }
 
     @Override
-    public void valueIn(double amount, String commentary){
+    public void valueIn(double amount, String commentary, String Date){
         this.balance += amount;
         this.monthlyIncome += amount;
         //historicMoviments.add("Income of " + amount + ", Description: " + commentary);
-        historicMoviments.put(index, "Income of " + amount + ", Description: " + commentary);
+        historicMoviments.put(index, "Income of " + amount + ", Description: " + commentary + ", Date: " + Date);
         index ++;
         System.out.println("Income of: " + amount + ", Description: " + commentary);
         System.out.println("Your balance is: $" + this.balance);
         
     }
     @Override
-    public void valueOut(double amount, String commentary){
+    public void valueOut(double amount, String commentary, String Date){
         this.balance -= amount;
         this.monthlyExpenses += amount;
-        historicMoviments.put(index, "Expense of " + amount + ", Description: " + commentary);
+        historicMoviments.put(index, "Expense of " + amount + ", Description: " + commentary + ", Date: " + Date);
         index ++;
         System.out.println("Expense of: " + amount + ", Description: " + commentary);
         //historicMoviments.add("Expense of " + amount + ", Description: " + commentary);

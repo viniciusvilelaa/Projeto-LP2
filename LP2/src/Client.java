@@ -35,13 +35,13 @@ public class Client extends Person implements Actions {
     }
 
     @Override
-    public void valueIn(double amount, String commentary) {
-        account.valueIn(amount, commentary);
+    public void valueIn(double amount, String commentary, String Date) {
+        account.valueIn(amount, commentary, Date);
     }
 
     @Override
-    public void valueOut(double amount, String commentary) {
-        account.valueOut(amount, commentary);
+    public void valueOut(double amount, String commentary, String Date) {
+        account.valueOut(amount, commentary, Date);
     }
 
 }

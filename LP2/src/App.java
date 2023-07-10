@@ -20,7 +20,7 @@ public class App {
         try{
             Client cliente = new Client(name, age, salary, expenses);
             while(exit != 1){
-                int id;
+                
                 Menu.openMenu();
                 option = sc.nextInt();
                 if(option == 1){
@@ -29,14 +29,18 @@ public class App {
                     System.out.print("Type spend description: ");
                     String description = sc.nextLine();
                     description = sc.nextLine();
-                    cliente.valueOut(amount, description);
+                    System.out.print("Type the date: ");
+                    String date = sc.nextLine();
+                    cliente.valueOut(amount, description, date);
                 }else if(option == 2){
                     System.out.print("Enter the income amount: ");
                     double amount = sc.nextDouble();
                     System.out.print("Type de income description: ");
                     String description = sc.nextLine();
                     description = sc.nextLine();
-                    cliente.valueIn(amount, description);
+                    System.out.print("Type the date: ");
+                    String date = sc.nextLine();
+                    cliente.valueIn(amount, description, date);
                 }else if(option == 3){
                     cliente.getBalance();
                 }else if(option == 4){
@@ -71,20 +75,7 @@ public class App {
         exit = 1;
             
              
-        /*try{
-            Client cliente = new Client("João", 20, 1200, 500);
-        }catch(IllegalArgumentException e){
-            System.out.println("Erro");
-        }*/
         
-        /*cliente.valueIn(100, "Salário");
-        cliente.valueIn(500, "sell");
-        cliente.valueOut(100, "comida");
-        cliente.getBalance();
-        cliente.getMonthlyExpenses();
-        cliente.getMonthlyIncome();
-        cliente.getMovimentacoes(0);
-        cliente.getMovimentacoes(1);*/
 
         
         
