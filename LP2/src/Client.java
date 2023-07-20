@@ -13,9 +13,7 @@ public class Client extends Person implements Actions {
         // Lugar onde pode ser utilizado as exeções
     }
 
-    public void getBalance() {
-        System.out.println("Your balance is: $" + account.getBalance());
-    }
+    
 
     public void getMonthlyExpenses() {
         System.out.println("Your expenses: $" + account.getMonthlyExpenses());
@@ -42,6 +40,11 @@ public class Client extends Person implements Actions {
     @Override
     public void valueOut(double amount, String commentary, String Date) {
         account.valueOut(amount, commentary, Date);
+    }
+
+    @Override
+    public void getBalance() {
+        System.out.println("Your balance is: $" + account.getBalance());
     }
 
 }

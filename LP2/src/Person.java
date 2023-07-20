@@ -26,5 +26,6 @@ public abstract class Person {
         return this.age;
     }
 
+    public abstract void getBalance();
 
 }
